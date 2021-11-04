@@ -1,0 +1,209 @@
+/*
+Nach drücken des Buttons ändert sich der Status:
+
+Ausgangsstatus: display aus
+Nach drücken des Knopfes abwechselnd lieb/böse.
+
+Einsteckeinstellungen: ??? muss ich mal nachtragen hab da nicht dran gedacht
+*/
+
+#include <Wire.h>
+#include "rgb_lcd.h"
+
+rgb_lcd lcd;
+/////////////////Colors
+//Orange:
+const int colorR_orange = 213;
+const int colorG_orange = 73;
+const int colorB_orange = 23;
+
+//Red:
+const int colorR_red = 153;
+const int colorG_red = 0;
+const int colorB_red = 0;
+
+//Blue:
+const int colorR_blue = 0;
+const int colorG_blue = 128;
+const int colorB_blue = 255;
+
+//Green:
+const int colorR_green = 0;
+const int colorG_green = 204;
+const int colorB_green = 0;
+
+/////////////////Emoji
+
+byte smiling_eye[8] = {
+  B00000,
+  B01110,
+  B11001,
+  B11101,
+  B11111,
+  B11111,
+  B01110,
+  B00000
+};
+
+byte smiling_mouth[8] = {
+  B00000,
+  B00000,
+  B00000,
+  B10001,
+  B10001,
+  B01110,
+  B00000,
+  B00000
+};
+
+byte evil_eye_left[8] = {
+  B00000,
+  B00000,
+  B10000,
+  B11000,
+  B10100,
+  B11110,
+  B11111,
+  B01111
+};
+
+byte evil_eye_right[8] = {
+  B00000,
+  B00000,
+  B00001,
+  B00011,
+  B00101,
+  B01111,
+  B11111,
+  B11110
+};
+
+byte evil_mouth[8] = {
+  B00000,
+  B00000,
+  B00000,
+  B01110,
+  B10001,
+  B10001,
+  B00000,
+  B00000
+};
+
+const int switchPin = 3;
+
+static int hits = 0;
+
+int switchState = 0;
+
+int prevSwitchState = 0;
+
+ 
+
+void setup() {
+
+    lcd.begin(16, 2);
+    
+    //lcd.setRGB(colorR_orange, colorG_orange, colorB_orange);
+    lcd.setRGB(0,0,0);
+    
+    lcd.createChar(0, smiling_eye);
+    lcd.createChar(1, smiling_mouth);
+    lcd.createChar(2, evil_eye_left);
+    lcd.createChar(3, evil_eye_right);
+    lcd.createChar(4, evil_mouth);
+
+
+    pinMode(switchPin,INPUT);
+
+    Serial.begin(9600);
+
+    lcd.setCursor(0, 0);
+    
+    //Sleeping
+
+    //lcd.print("...");
+
+}
+
+ 
+
+void loop() {  
+
+  switchState = digitalRead(switchPin);
+
+  Serial.print("switchState:");Serial.println(switchState);
+
+  if (switchState != prevSwitchState) {
+
+    if (switchState == HIGH) {
+
+          hits = hits + 1;
+
+          delay(10);
+
+    }
+
+  }
+
+ 
+  //Smiling
+  Serial.print("hits:");Serial.println(hits);
+
+  if(hits==1)
+
+  {
+    //lcd.setRGB(colorR_green, colorG_green, colorB_green);
+    lcd.setRGB(colorR_orange, colorG_orange, colorB_orange);
+
+    Serial.println(":)");
+
+    lcd.clear();
+
+  //left eye
+    lcd.setCursor(6, 0);
+    lcd.write((unsigned char)0);
+  //right eye
+    lcd.setCursor(10, 0);
+    lcd.write((unsigned char)0);
+  // mouth
+    lcd.setCursor(8, 1);
+    lcd.write((unsigned char)1);
+
+  }else
+  
+
+  //angry
+  if(hits==2)
+
+  {
+    lcd.setRGB(colorR_red, colorG_red, colorB_red);
+
+    Serial.println(":(");
+
+    lcd.clear();
+
+  //left eye
+    lcd.setCursor(6, 0);
+    lcd.write((unsigned char)2);
+  //right eye
+    lcd.setCursor(10, 0);
+    lcd.write((unsigned char)3);
+  // mouth
+    lcd.setCursor(8, 1);
+    lcd.write((unsigned char)4);
+
+
+  }else
+  
+
+  if ( hits>=3)
+
+  {
+
+     hits = 1;
+
+  }
+
+delay(500);
+
+}
