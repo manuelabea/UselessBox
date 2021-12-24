@@ -1,4 +1,7 @@
-## Bisher bestellte Bauteile
+# Disclaimer:
+**Alle Codedateien wurden als .txt gespeichert um sie pushen zu können. Copy-Paste in die Arduino IDE um den Code auszuführen
+
+# Bisher bestellte Bauteile
 
 ### Das Gehirn
 **Teensy 4.1**
