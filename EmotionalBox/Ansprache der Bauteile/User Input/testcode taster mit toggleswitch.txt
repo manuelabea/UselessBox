@@ -1,0 +1,43 @@
+/*
+Ich habe Den ON-OFF Toggle Switch verwendet und einen Taster
+
+Wie werden die beiden verkabelt?
+
+Toggle Switch:
+Ein Kabel (z.B. rot) an PIN 2 stecken. Das andere (weiß) muss auf Ground (PIN G) gesteckt werden.
+
+
+Taster:
+Ein Kabel (z.B. rot) an PIN 7 stecken. Das andere (weiß) muss auch auf Ground (PIN G). Hier habe ich nach oben hin verkabelt, hat auch gut funktioniert. 
+*/
+const int togglePin = 2;  
+const int buttonPin = 7;       
+
+
+// variables will change:
+int toggleState = 0;          // variable for reading the toggle switch status
+int buttonState = 0;          // variable for reading the push button status
+
+void setup() {
+  // initialize the toggle switch pin as an input:
+  pinMode(togglePin,INPUT_PULLUP);
+  pinMode(buttonPin,INPUT_PULLUP);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  toggleState = digitalRead(togglePin);
+  buttonState = digitalRead(buttonPin);
+
+  // check which direction toggle switch is switched to
+  if (toggleState == LOW) {
+    if (buttonState == HIGH) {
+      Serial.println("On & Taster gedrückt");
+    } else {
+      Serial.println("On & ...");
+    }
+  } else {
+    Serial.println("off");
+  }
+   delay(500);
+}
