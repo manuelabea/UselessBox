@@ -85,7 +85,7 @@ https://www.waveshare.com/wiki/4.2inch_e-Paper_Module
 
 
 
-# ach keine Ahnung wo ich das brauchen werde
+# ach keine Ahnung wo wir das brauchen werden
 **4-channel I2C-safe Bi-directional Logic Level Converter - BSS138:**
 Das Ding ist ein level switcher.... eventuell werden wir den irgendwo brauchen auch vordem wir den Akku verbauen
 
