@@ -1,0 +1,34 @@
+/*
+Hier kann der Toggle Switch, der Taster oder der Wippschalter angeschlossen werden. Dabei haben alle jeweils ein weißes, und ein rotes Kabel. Die Farbe des Kabels hat keine Bedeutung die sind beide gleich. Also keine Angst vor einem Kurzschluss.
+
+Wie wird das Ding verkabelt?
+
+Ein Kabel (z.B. rot) an PIN 2 stecken. Das andere (weiß) muss auf Ground (PIN G) gesteckt werden.
+Nur so funktioniert es.
+
+Was ich gemacht hatte (was falsch ist): weiß und rot auf PIN 2 übereinander. Das klappt nicht und führt zu komischem Verhalten - also nicht machen. Es geht zwar nichts kaputt aber es funktioniert nicht.
+*/
+const int togglePin = 2;         
+
+
+// variables will change:
+int toggleState = 0;         // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the toggle switch pin as an input:
+  pinMode(togglePin,INPUT_PULLUP);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  toggleState = digitalRead(togglePin);
+
+  // check which direction toggle switch is switched to
+  if (toggleState == HIGH) {
+    Serial.println("Taster gedrückt");
+    delay(500);
+  } else {
+    Serial.println("...");
+    delay(500);
+  }
+}
