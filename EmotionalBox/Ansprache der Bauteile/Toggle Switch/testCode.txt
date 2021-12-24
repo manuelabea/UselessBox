@@ -1,0 +1,31 @@
+/*
+Ich bin maximal verwirrt mit dem Code. Wenn ich den toggle switch umlege kommt ganz kurz "on", danach wieder durchgehend "off". Müsste nicht eigentlich wenn "on" ist dauerhaft "on" kommmen und bei "off" dauerhaft "off"?
+
+~halbe Stunde später~
+Ganz ehrlich, keine Ahnung. komisches Verhalten sowohl mit dem Kippschalter als auch dem Toggle Switch. Vom Knopf müssen wir gar nicht erst reden.
+*/
+
+const int togglePin = 2;         // muss/kann da vielleicht 14 hin?
+
+// variables will change:
+int toggleState = 0;         // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the toggle switch pin as an input:
+  pinMode(togglePin, INPUT);
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  toggleState = digitalRead(togglePin);
+
+  // check which direction toggle switch is switched to
+  if (toggleState == LOW) {
+    // turn LED on:
+    Serial.println("off");
+    delay(500);
+  } else {
+    Serial.println("on");
+    delay(500);
+  }
+}
