@@ -8,23 +8,23 @@ Nur so funktioniert es.
 
 Was ich gemacht hatte (was falsch ist): weiß und rot auf PIN 2 übereinander. Das klappt nicht und führt zu komischem Verhalten - also nicht machen. Es geht zwar nichts kaputt aber es funktioniert nicht.
 */
-const int togglePin = 2;         
+const int buttonPin = 2;         
 
 
 // variables will change:
-int toggleState = 0;         // variable for reading the pushbutton status
+int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() {
   // initialize the toggle switch pin as an input:
-  pinMode(togglePin,INPUT_PULLUP);
+  pinMode(buttonPin,INPUT_PULLUP);
 }
 
 void loop() {
   // read the state of the pushbutton value:
-  toggleState = digitalRead(togglePin);
+  buttonState = digitalRead(buttonPin);
 
   // check which direction toggle switch is switched to
-  if (toggleState == HIGH) {
+  if (buttonState == HIGH) {
     Serial.println("Taster gedrückt");
     delay(500);
   } else {

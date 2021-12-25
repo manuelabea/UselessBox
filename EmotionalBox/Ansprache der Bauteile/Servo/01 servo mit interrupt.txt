@@ -1,0 +1,60 @@
+/*
+https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/
+*/
+
+/* 
+Servo:
+    Bei 5V anschließen!!
+    Farbe               Position            Koordinate
+    Braun               oben                PIN 15 - 
+    Rot                 oben                PIN 15 +
+    Gelb                oben                PIN 15 (A10)
+
+Toggle Switch:
+    rot/weiß:           PIN 2
+    das andere Kabel:   Ground
+*/
+
+#include <Servo.h> 
+ 
+Servo myservo;  
+ 
+int pos = 0;    // variable to store the servo position 
+const int togglePin = 2; 
+
+// Volatile weil wir diesen toggleState in unserer Interrupt Funktion ändern werden.
+volatile byte toggleState = LOW;        
+ 
+void setup() 
+{ 
+  myservo.attach(15);  
+  pinMode(togglePin, INPUT_PULLUP); 
+
+  // Es wird auf einen Interrupt von dem Pin togglePin gwartet (PIN 2, da da unser Toggle Switch drangesetzt wurde) und sobald der Zustand HIGH ist, wird die Funktion stopMoving aufgerufen.
+  // Man könnte zwar auch als ersten Parameter direkt togglePin übergeben, das wird von Arduino allerdings nicht empfohlen.
+  attachInterrupt(digitalPinToInterrupt(togglePin), stopMoving, HIGH);
+} 
+ 
+// Der Servo bewegt sich hin und her.
+void loop() 
+{ 
+  for(pos = 10; pos < 170; pos += 1)  
+  {                                  
+    myservo.write(pos);              
+    delay(15);                        
+
+  } 
+  for(pos = 180; pos>=1; pos-=1)     
+  {                                
+    myservo.write(pos);             
+    delay(15);  
+  }                    
+} 
+
+void stopMoving()
+{
+  toggleState = !toggleState;
+}
+
