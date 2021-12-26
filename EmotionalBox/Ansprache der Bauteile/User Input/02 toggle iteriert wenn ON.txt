@@ -1,0 +1,55 @@
+/*
+Ein Kabel (z.B. rot) an PIN 2 stecken. Das andere (weiß) muss auf Ground (PIN G) gesteckt werden.
+Nur so funktioniert es.
+*/
+
+const int togglePin = 2;
+
+// wie lange wird gebraucht bis wir eine state Änderung als einen neuen State akzeptieren
+const int temporalThreshold = 100;
+
+// variable to count which action we're at
+volatile int actionCounter = 0;
+
+// variables will change:
+volatile byte toggleState = LOW;         // variable for reading the pushbutton status
+
+// Der Zeitstempel von der letzten Veränderung
+unsigned long lastUpdate = -1;
+
+// Die Methode die im Interrupt aufgerufen wird (countActions) wird davon abgehalten wiederholt aufgerufen zu werden
+boolean blocked = false; 
+
+void setup() {
+  actionCounter = 0;
+  pinMode(togglePin,INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(togglePin), countActions, CHANGE);
+}
+
+void loop() {
+  
+}
+
+void countActions()
+{
+  // Wenn die letzte Veränderung die Zeit des temporalThreshold's her ist, wird ausgeführt.
+  if (lastUpdate + temporalThreshold < millis() && blocked == false) {
+    blocked = true;
+    // merkt sich wann der Änderungsvorgang gestartet wurde
+    lastUpdate = millis();
+    // wichtig!! Da im Wechsel noch viel passieren kann, warten wir bis sich der State endgültig stabilisiert hat
+    delay(50);
+    // lesen den Status aus
+    toggleState = digitalRead(togglePin);
+    
+    if (toggleState == LOW) {
+      actionCounter += 1;
+      Serial.println("ON ++");
+    } else {
+      Serial.println("OFF");      
+    }
+    Serial.println("Updated " + String(actionCounter) + " state: " + String(toggleState));
+    // Methode wird freigegeben
+    blocked = false;
+  }
+}
