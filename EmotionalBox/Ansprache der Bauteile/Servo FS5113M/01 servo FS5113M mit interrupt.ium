@@ -4,6 +4,10 @@ https://www.arduino.cc/reference/en/language/functions/external-interrupts/attac
 https://www.arduino.cc/reference/en/language/variables/variable-scope-qualifiers/volatile/
 */
 
+/*
+Der Servo bewegt sich hin und her während der toggle switch AN ist. Sobald der toggle switch AUS ist, dreht sich nichts mehr. Das ganze wurde mit einem Interrupt gemacht.
+*/
+
 /* 
 Servo:
     Bei 5V anschließen!!
@@ -32,8 +36,11 @@ void setup()
   myservo.attach(15);  
   pinMode(togglePin, INPUT_PULLUP); 
 
-  // Es wird auf einen Interrupt von dem Pin togglePin gwartet (PIN 2, da da unser Toggle Switch drangesetzt wurde) und sobald der Zustand HIGH ist, wird die Funktion stopMoving aufgerufen.
-  // Man könnte zwar auch als ersten Parameter direkt togglePin übergeben, das wird von Arduino allerdings nicht empfohlen.
+/* 
+    Es wird auf einen Interrupt von dem Pin togglePin gwartet (PIN 2, da da unser Toggle Switch drangesetzt wurde) und sobald der Zustand HIGH ist, wird die Funktion stopMoving aufgerufen.
+    Man könnte zwar auch als ersten Parameter direkt togglePin übergeben, das wird von Arduino allerdings nicht empfohlen.
+*/  
+
   attachInterrupt(digitalPinToInterrupt(togglePin), stopMoving, HIGH);
 } 
  

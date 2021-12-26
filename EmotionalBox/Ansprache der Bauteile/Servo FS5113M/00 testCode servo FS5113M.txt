@@ -1,3 +1,7 @@
+/*
+  Ohne Schnick Schnack. Der Servo dreht sich einfach weiter und weiter. Ist gut zum Testen ob er noch funktioniert
+*/
+
 /* Bei 5V anschließen!!
 Farbe               Position            Koordinate
 Braun               oben                PIN 15 - 

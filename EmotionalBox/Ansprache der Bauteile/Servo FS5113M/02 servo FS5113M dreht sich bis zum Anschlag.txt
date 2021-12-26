@@ -1,0 +1,76 @@
+/*
+Bei diesem Code dreht sich der Servo im "AUS" Zustand in eine Richtung, beim "AN" Zustand in die andere Richtung.
+Dreht sich auch nur bis zum Anschlag (nur mit dem richtigen Servo verwenden, der andere hat 120 Grad Spielraum)
+
+Wird glaube ich eine gute Grundlage sein wenn die Box den Schalter selbst umdreht.
+*/
+
+/*
+IRGENDWAS STIMMTE VORHER NICHT!!!!
+
+Die Szenarien:
+Toggle ON -> Strom an  -> (dreht sich auf initialposition) -> alles ok 
+Toggle OFF -> Strom an -> (dreht sich auf initialposition) -> NICHTS funktioniert. Auch keine Reaktion wenn auf ON gelegt wird.
+
+Wenn toggle auf AN und auf AUS umgelegt wird ist alles ok.
+Wenn toggle auf AUS und auf AN umgelegt wird legt sich der Servo still bzw. mein Laptop geht aus?!
+
+___________________________________________________________________________________________________________________________________________
+Herausgefunden warum: statt volatile byte toggleState = LOW; hatte ich int toggleState = 0 da stehen. Ob es an dem Volatile lag, oder daran, dass es ein int war keine Ahnung..... Aber auf jeden Fall hat er mit der Info nichts anfangen können.
+___________________________________________________________________________________________________________________________________________
+
+Bei 5V anschließen!!
+Farbe               Position            Koordinate
+Braun               oben                PIN 15 - 
+Rot                 oben                PIN 15 +
+Gelb                oben                PIN 15 (A10)
+
+
+HIGH  ->  OFF
+LOW   ->  ON
+*/
+
+#include <Servo.h> 
+ 
+Servo myservo;  
+ 
+int pos = 0;    
+const int togglePin = 2; 
+volatile byte toggleState = LOW;      
+ 
+void setup() 
+{ 
+  myservo.attach(15);  // attaches the servo on pin 15. !!! HIER AUFPASSEN, egal welcher PWM Pin ist ok, muss aber hier angesprochen werden
+  Serial.println("setup()");
+  Serial.print("pos: ");
+  Serial.println(pos);
+  Serial.println();
+  pinMode(togglePin, INPUT_PULLUP); 
+  // Vorsicht... ohne diese Zeile stürzt entweder der Laptop oder der Servo ab. 
+  myservo.write(0);
+} 
+
+void loop() {
+  
+  toggleState = digitalRead(togglePin);
+
+  // toggle OFF
+  if (toggleState == HIGH && pos >= 0) {
+    Serial.print("'OFF' & pos  ");
+    Serial.print(pos);
+    Serial.println();
+    myservo.write(pos);
+    pos--;
+    delay(15);                         
+  }  
+   
+  // toggle ON
+  else if (toggleState == LOW && pos <= 180) {
+    Serial.print("'ON' & pos  ");
+    Serial.print(pos);
+    Serial.println();
+    myservo.write(pos);
+    pos++;
+    delay(15);                         
+  }
+}

@@ -22,8 +22,10 @@ https://www.waveshare.com/wiki/4.2inch_e-Paper_Module
 
 ### Servos
 **FS5113M:**
+https://www.generationrobots.com/en/403268-servomoteur-standard-180-fs5113m.html
 
 **FS5106M:**
+https://www.exp-tech.de/motoren/servomotoren/9503/fs5106m-metal-gears-analog-servo
 
 ### Zeug für den Akku (& der Akku)
 **CHB-214**
