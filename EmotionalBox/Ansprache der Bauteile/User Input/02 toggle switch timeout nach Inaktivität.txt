@@ -1,0 +1,32 @@
+/*
+Ein Kabel (z.B. rot) an PIN 2 stecken. Das andere (weiß) muss auf Ground (PIN G) gesteckt werden.
+Nur so funktioniert es.
+*/
+
+const int togglePin = 2; 
+
+// variable to count which action we're at
+int actionCounter = 0;
+
+// variables will change:
+int toggleState = 0;         // variable for reading the pushbutton status
+
+void setup() {
+  // initialize the toggle switch pin as an input:
+  pinMode(togglePin,INPUT_PULLUP);
+  actionCounter = 0;
+}
+
+void loop() {
+  // read the state of the pushbutton value:
+  toggleState = digitalRead(togglePin);
+
+  // check which direction toggle switch is switched to
+  if (toggleState == LOW) {
+    Serial.println("on");
+    delay(500);
+  } else {
+    Serial.println("off");
+    delay(500);
+  }
+}
