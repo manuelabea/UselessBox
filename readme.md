@@ -49,10 +49,10 @@ https://www.reichelt.de/entwicklerboards-4in1-modul-fuer-3-7v-li-ion-akkus-debo-
 
 noch etwas für den Akku... KA ob wir wirklich das alles brauchen werden. aber naja.
 
-**LIPO Akku Nr. 1:**
+**LI-ION Akku Nr. 1:**
 https://www.akkuteile.de/lithium-ionen-akkus/18650/sony-konion-us18650vtc5a-2600mah-3-6v-3-7v-flat-top-35a_100808_1328
 
-**LIPO Akku Nr. 2:**
+**LI-ION Akku Nr. 2:**
 https://www.exp-tech.de/media/pdf/lipo/SPE-DTP18650-3P-6600mah-En-1.0V.pdf
 
 
