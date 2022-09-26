@@ -1,0 +1,13 @@
+Das hatte ich mir zum Display aufgeschrieben. 
+Zusammengereimt hatte ich mir das aus 
+der Teensy 4.1 Pin Belegung: https://www.pjrc.com/store/teensy41_card11a_rev3.pn, 
+der Readme von der Circuitpython EPD Bibliothek https://github.com/adafruit/Adafruit_CircuitPython_EPD#usage-example
+und dem SPI Wiki Artikel https://de.wikipedia.org/wiki/Serial_Peripheral_Interface
+
+
+PINS:
+    - SPI
+        - MOSI (Master Output Slave Input) - Teensy 4.1: 11 - DIN
+        - MISO (Master In Slave Output) - Teensy 4.1: 12
+        - CLOCK (System Clock) - Teensy 4.1: 13 
+    - 5 Digital IO - Teensy 4.1: Fast alle Pins
