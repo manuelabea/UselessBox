@@ -1,0 +1,237 @@
+#Expose
+Wir haben vor, im Laufe dieses Semesters eine sogenannte „Useless Box“ bauen. 
+Dafür haben wir einige Grundfunktionen herausgearbeitet, sowie zum Teil optionale Features. 
+Wir legen einen hohen Wert darauf, dass die Funktionen die wir einbauen stabil und gut funktionieren. 
+Quasi „weniger ist mehr“ damit die Box langlebig ist und einen hochwertigen Eindruck macht. 
+Ziel ist es, dass die Box am Ende (wie sie auch aussehen mag) einen eigenen Charakter hat und wirkt, als hätte Sie „eine Seele“.
+
+## Grundfunktionen:
+- Eine Box die sich öffnen lässt (durch eine Klappe), mit einem Schalter der betätigt werden kann und ein Greifarm im 
+inneren der Box. 
+- Nach betätigen des Schalters kann sich die Klappe öffnen und der Greifarm kommt hervor und setzt den Schalter zurück
+- Kein Ton, keine Lichter, keine Extras. 
+
+### Wichtige Aufgaben hierbei sind:
+
+- Wie stellt man den Motor richtig ein? 
+- Konstruktion des Mechanismus vom Öffnen/Schließen der Klappe 
+- Konstruktion der Bewegung vom Greifarm 
+- „Hardgecodete“ Moves 
+- Automatisierte Moves (Dynamische Anpassung von z.B. der Geschwindigkeit in welcher ein Move gemacht wird)
+- Welches Material soll verwendet werden? Holz/3D Druck/… 
+- Wie stellt man sicher, dass die Box langlebig ist? 
+- Wie bekommt unsere Box Strom? Idee: Batterien? 
+- Soll es einen An- Aus-Schalter geben? 
+
+## Extras:
+*Display:* Emotionen der Box darstellen mithilfe von Smileys 
+- Beim ersten Mal umlegen „verwirrung“/“gerade aufgewacht“ 
+- Wenn zu oft gedrückt, dann „genervt“ 
+- Bei Inaktivität „schlafend“, nach einiger Zeit wird Deckkraft geringer 
+- Hardware: LCD Matrix/E-Ink? Farbdisplay oder keins?  
+
+*LED Lichter:*
+- Innere Beleuchtung die den Stimmungszustand der Box unterstreicht 
+- Bspw. Genervt = rot 
+
+*Ton (Lautsprecher):*
+- Stimme nimmt Niedlichkeit?
+- Animal Crossing Ansatz, keine richtige Stimme haben? 
+- Tonspuren reinladen? Quasi wie „Siri“ eine Roboterstimme die vorgefertigte Sachen aussagt? 
+- Hierbei aufpassen, dass die Reaktionen trotzdem authentisch wirken.
+
+*Surrender-Flag:*
+- Weiterer Hebel mit einer weißen Flagge um zu signalisieren, dass die Box „aufgibt“ wenn man an das Ende der Moves 
+gelangt ist 
+
+*Knöpfe mit anderen Reaktionen:*
+- Die Box erfüllt natürlich hierbei auch eine unnütze Funktion,
+- Auf die Frage „Wieviel Uhr ist es“ kommen entweder die falschen Zeitangaben oder pfiffige Reaktionen wie „Sehe ich aus wie eine Uhr? 
+- Bei der „Magischen Miesmuschel“ (Entscheidungshilfe) kommen Antworten wie „Warum fragst du mich?“, „sollte mich das interessieren?“ etc. 
+
+*Sensoren verschiedener Art, bspw:*
+- Box merkt, dass man den Schalter betätigen möchte und fährt weg
+- Dafür Mechanismus einbauen, dass sie rollen kann 
+- Und Sensoren, damit Sie nicht vom Tisch fällt 
+- Box merkt, dass die Klappe mit den Knöpfen aufgemacht wurde und wird „wach“ -> Emoji sichtbar auf Display 
+
+*Zeitplan:*
+
+Beenden vor Ende des Semesters, das meiste sollte vor der Klausurphase fertig sein.
+Anfang Prüfungsphase: 26/01/2022 (bis dahin etwa 3 Monate)
+Ende des Semesters: 20/03/2022 (bis dahin etwa 5 Monate)
+
+*Meilensteine:*
+- Zielebesprechung/Anfertigung des Exposé 
+- Vorstellung Exposé für Rückmeldung und erstellen eines noch konkreteren Plans (KW 41)
+- Planung/Bestellung der Hardware 
+- 3D Modell erstellen (KW 42, 43)
+- Von außen, von innen 
+- Funktionieren alle Mechanismen? Hebel, Schalter….. 
+- Ist genug Platz innen? 
+- Tatsächliche Entwicklung (ca. 8 Wochen)
+- zB Display programmieren während es noch nicht fest verbaut ist → verschiedene Emotionen 
+- Motoren (Bewegung, Hebel, öffnen/schließen) erst bei Kompletter Box (verschiedene Moves)
+- Öffnen/schließen der Klappe 
+- Innerer Arm Bewegung. Schiebt der Arm die Klappe auf? Geht die Klappe separat auf`? → Das ganze wird etwas komplexer dadurch. Nochmal genauer schauen
+- Man muss sich 100% sicher sein, dass wenn der Arm sich bewegt, die Klappe schon offen ist, sonst zerstört sich die box von alleine 
+- Schlafen → sie geht aus. Irgendeine Interaktion- an. Oder an-/aus knopf? 
+- Zusammenbauen und Testen (Durchgehend). Optimierung bis zum Schluss. 
+
+#Besprechung mit Lars
+
+PI:
+- Linux, muss erstmal hochfahren und verbraucht Strom 
+- Wenn sie stehen soll mit Netzteil, dann machbar 
+- PI ist ein Computer und hat Stärke in Computersachen 
+
+Arduino/Teensy:
+- Audio: Teensy 3.5/3.6/4/4.1
++ Hat Audioverarbeitung (Audio auf einem Stick oder so speichern)
++ Kann Audio aufnehmen
+
+Motor:
+Selbst schlau machen, wie man die ansteuern kann.
+Bei Teensy gibt’s jede menge Beispiele wie man Serbos (?) ansteuern kann
++/- 95 Grad Drehung
+Schrittmotoren
+Oder brauchen wir größere Umdrehungen?
+
+Teensy hat auch Beispiele für Displays
+
+Teensy lässt sich mit der Arduino IDE Programmieren (C)
+
+Auch platform IO (Ecplipse)
+
+Es gibt auch PlugIns für VS Code
+
+JetBrains?
+
+Displays:
+
+Irgendwie müssen die Pixel angesteuert werden. LCD Display (Wenn wir akku haben wollen)
+
+Wenn wir einzelnde LED setzt, erzeugen wir den gewünschten Effekt?
+
+Da kann man low-power LED nehmen
+
+Taschenrechner haben oft das Problem, dass die nur die festen Zahlen/Formen nachzeichnen können
+
+Arduino LCD Boards (Liquid Chrystal)
+
+OLED Display
+
+Stromsparsam: E-INK brauchen gar keinen Strom wenn eingestellt, sind langsamer, haben höhere Auflösung
+
+Bei den meisten Displays geht der Bildschirm einmal komplett aus vordem man den neuen Zustand angezeigt bekommt
+
+Gibt es in vollfarbig (nicht günstig)/mehrere Farben
+
+AUDIO + VIDEO? Geht alles mit Teensy (4.1)
+
+Arbeit einfach machen und schauen was es schon gibt 
+
+Teensy 4.1 hat 600 Megaherz
+
+3.5 120 Megaherz, auch Audio da kann man auch schon einiges machen
+
+Da gibt es auch fertige Audioboards
+
+NÄCHSTER TERMIN:
+
+Schlau machen an Hardware, wie kompliziert sieht das aus?
+
+Genau die Funktionen die rein müssen definieren
+
+AKKU – wie bekommt man den geladen? Lipo akkus (höhere Energiedichte)
+
+Lipo Akku muss geschützt werden, dass er erkennt, dass der Akku langsam leer wird sonst geht er kaputt.
+
+Oder Batterie -> das LED Display weglassen
+
+Für Volles Programm – Netzteil
+
+AKKUS / Stromverbrauch:
+
+Strom wird in amper angegeben
+
+Bspw
+
+500 mp Akku
+
+1000 mp Display hält nicht
+
+Da nochmal reinlesen.
+
+gibt ARDUINO:
+
+- Es gibt mehrere Logiklevel 
+
+- KA ob es da Audiolibrary
+
+ESP (Firma):
+
+ESP 32 ganz interessant (der größte)
+
+Hat zwei kerne, kann zwei Kerne gleichzeitig bearbeiten
+
+- Interessant bei Mechanik + Sounds und so einem Kram 
+
+Sinnvoll bei vielen Aufgaben
+
+Hat WIFI und Bluetooth
+
+AUFGABEN:
+
+- Funktionsblock Diagramm 
+- Zeitangaben, was läuft Parallel? Was nicht? Hilft bei Hardware Entscheidung 
+- Batterie muss Sicherung haben 
+
+NICHT TECHNISCH GESEHEN; SONDERN VON DER LOGISCHEN SEITE HER
+
+WIE GROß SOLL DAS DISPLAY SEIN?
+
+Funktionsblöcke die das Gesamtsystem beschreiben 
+Da sind wir auch schon richtung Hardware unterwega
+
+Teensy, ESP , Arduino, Rasberry -> Wie unterscheiden die sich?
+
+Sachen kaufen wir über das Labor
+
+Irgendwann machen wir einen Überschlag was an Materialien benötigt wird. Wenns zu teuer ist, zahlen wir vlt
+
+Mehr Funktionen -> mehr Pins
+
+Alles was wir sehen einfach mal auf eine Liste Schreiben (damit Lars direkt weiß wo er etwas findet wenn er bestellt)
+
+Planung des Ganzen:
+
+Gehäuse:
+
+Laubsäge? Von Hand in der Holzwerkstatt? CAD Fertigung? 3D Druck? Fräsen? (Kunststoff, Holz,…) 
+
+CAD: wir brauchen entsprechende Vorlagen -> Fusion 360
+
+Bei allem was wir planen, das muss irgendwie in das Gehäuse reinkommen.
+
+(Hat alles aber noch Zeit)
+
+Terminfindung:
+
+Montag
+
+Entwicklungsphase:
+
+- Display 4,2 inch e-ink 
+
+- Audiogerät direkt miteinplanen
+
+- Licht einfach einzubauen
+
+- Magische Miesmuschel Funktion: erst Text, später Ton 
+
+- knöpfe 
+
+ 
+
+ 

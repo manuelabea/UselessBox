@@ -1,0 +1,48 @@
+#Useless Box
+
+###Grundfunktion:
+1. Box öffnet sich anhand von Input des Kippschalters
+    - [ ] Servo ansprechen (kann üüberhaupt etwas tun)
+    - [ ] Input eines Kippschalters erkennen
+    - [ ] Auf Input warten, anhand von Input Funktion aufrufen
+2. Box schließt sich sobald der Input des Kippschalters wechselt
+    - [ ] Unterscheidung Input Signal
+3. Programmablauf, jedes Mal wenn man drückt, passiert etwas anderes
+    - [ ] Counter implementieren der jedes "An" des Kippschalters registriert
+    - [ ] Anhand von Counter Funktion aufrufen
+
+###Zusatz:
+4. Anhand von Input vom Kippschalter geht Licht an
+    - [ ] LED muss überhaupt reagieren
+    - [ ] LED RGB Wert änderbar
+    - [ ] LED an Programmablauf angepasst
+5. Anhand vom Input erscheint Text auf dem Display
+    - [ ] Display muss überhaupt reagieren
+    - [ ] Verschiedene Sachen auf dem Display anzeigen lassen
+        - [ ] Custom Characters
+        - [ ] Text
+        - [ ] Bewegender Text/Bilder?
+    - [ ] Anhand von Counter/je nach Funktion andere Sache anzeigen lassen
+6. Anhand von Input vom Näherungssensor Wegbewegen
+    - [ ] Näherungssensor
+        - [ ] ansprechen
+        - [ ] auslesen
+    - [ ] Motoren
+        - [ ] Überhaupt ansprechen
+        - [ ] Anhand von Wert vom Näherungssenor ansprechen
+    - [ ] Distanzsensor
+        - [ ] Ansprechen
+        - [ ] Auslesen
+        - [ ] Wenn Motoren sich bewegen, aktiv sein lassen
+        - [ ] Wenn während die Motoren aktiv sind, der Wert sich ändert (überm Boden), Motoren stoppen lassen
+7. Die Magische Miesmuschel
+    - Button
+        - [ ] ansprechen
+        - [ ] Input auslesen
+        - [ ] Anhand dieses Inputs Funktionen aufrufen
+            - [ ] Random Text ausgeben
+                - [ ] Random Funktion implementieren
+                - [ ] Antworten schreiben
+
+## Fragen die geklärt werden müssen
+Q: Wie unterscheide ich den Normalen Modus vom Modus der magischen Miesmuschel?
