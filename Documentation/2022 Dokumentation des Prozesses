@@ -1,0 +1,13 @@
+##*11.10.2022*
+Todo (1a):
+- Spannungsversorgung nicht vergessen! Der Servo hatte sich anfangs nicht gedreht... er hatte auch keine
+  Spannung. 5V Pin mit dem + auf der gleichen Seite verbinden.
+
+Todo (1c):
+- Funktioniert, siehe: **EmotionalBox/Ansprache der Bauteile/01 Servo + User Input/00 toggle iteriert und servo dreht 
+  sich bei input**
+- Funktioniert, aber nicht schön. Das ganze muss objektorientiert gehen damit der Code schöner und übersichtlicher ist.
+
+###Objekt Orientiertes Programmieren mit C++
+https://www.mintgruen.tu-berlin.de/robotikWiki/doku.php?id=techniken:objektorient
+

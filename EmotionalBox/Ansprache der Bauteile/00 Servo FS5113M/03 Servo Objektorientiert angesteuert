@@ -1,0 +1,57 @@
+/*
+Toggle:
+Ein Kabel (z.B. rot) an PIN 2 stecken. Das andere (weiß) muss auf Ground (PIN G) gesteckt werden.
+
+Servo:
+Spannung bei 5V anschließen!!
+Farbe               Position            Koordinate
+Braun               oben                PIN 15 -
+Rot                 oben                PIN 15 +
+Gelb                oben                PIN 15 (A10)
+*/
+
+#include <Servo.h>
+
+class UselessServo {
+  public:
+    //Constructor
+    UselessServo();
+
+    //Functions for Servo
+    void setupServo(int iServoPin); //Setup the servo on a certain input
+    void turnServo(int iDegrees); // Turn the Servo to a certain position
+
+  private:
+    Servo _myServo;
+    int _iServoPin; // Input on which Servo is connected
+    int _iDegrees; // To which Position the Servo must turn
+
+};
+
+UselessServo myUselessServo;
+
+void setup() {
+  myUselessServo.setupServo(15);
+}
+
+void loop() {
+  myUselessServo.turnServo(20);
+  delay(3000);
+
+  myUselessServo.turnServo(60);
+  delay(3000);
+}
+
+UselessServo::UselessServo(){
+  _myServo = Servo();
+}
+
+void UselessServo::setupServo(int iServoPin){
+  _iServoPin = iServoPin;
+  _myServo.attach(_iServoPin);
+}
+
+void UselessServo::turnServo(int iDegrees){
+  _iDegrees = iDegrees ;
+  _myServo.write(_iDegrees) ;
+}
