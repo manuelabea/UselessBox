@@ -4,13 +4,16 @@
 1. Box öffnet sich anhand von Input des Kippschalters
     - [x] a. Servo ansprechen (kann überhaupt etwas tun) *11.10.2022*
     - [x] b. Input eines Kippschalters erkennen
-    - [ ] c. Auf Input warten, anhand von Input ~~Funktion aufrufen~~ Servo sich drehen lassen
+    - [x] c. Auf Input warten, anhand von Input ~~Funktion aufrufen~~ Servo sich drehen lassen
+    - [x] d. Servo Objektorientiert ansteuern
+    - [] e. Objektorientiert a-c umsetzen
 2. Box schließt sich sobald der Input des Kippschalters wechselt
     - [ ] Unterscheidung Input Signal
 3. Programmablauf, jedes Mal wenn man drückt, passiert etwas anderes
     - [ ] Counter implementieren der jedes "An" des Kippschalters registriert
     - [ ] Anhand von Counter Funktion aufrufen
 3a. Zwei Servos, er wird der erste Servo aufgerufen, dann der zweite
+
 
 ###Zusatz:
 4. Anhand von Input vom Kippschalter geht Licht an

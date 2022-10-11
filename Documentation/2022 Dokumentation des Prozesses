@@ -11,3 +11,10 @@ Todo (1c):
 ###Objekt Orientiertes Programmieren mit C++
 https://www.mintgruen.tu-berlin.de/robotikWiki/doku.php?id=techniken:objektorient
 
+https://forum.arduino.cc/t/using-a-library-in-a-class/325678/6
+
+Servo zum ersten Mal Objektorientiert angesteuert!! Der Code aus dem zweiten Link hat funktioniert :)
+
+Da in dem Code aber sehr primitiv der Servo nur seine Position wechselt, schauen, ob ich das mit dem Input irgendwie 
+kombinieren kann, bzw. ob ich meinen bisherigen Servo Code umsetzen kann mit der While Schleife. Aber das mal mit 
+mehr Schlaf :D
