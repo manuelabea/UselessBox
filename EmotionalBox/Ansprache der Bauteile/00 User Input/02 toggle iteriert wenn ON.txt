@@ -15,7 +15,7 @@ volatile int actionCounter = 0;
 volatile byte toggleState = LOW;         // variable for reading the pushbutton status
 
 // Der Zeitstempel von der letzten Veränderung
-unsigned long lastUpdate = -1;
+
 
 // Die Methode die im Interrupt aufgerufen wird (countActions) wird davon abgehalten wiederholt aufgerufen zu werden
 boolean blocked = false; 

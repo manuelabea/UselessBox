@@ -1,12 +1,14 @@
 ##*11.10.2022*
 Todo (1a):
-- Spannungsversorgung nicht vergessen! Der Servo hatte sich anfangs nicht gedreht... er hatte auch keine
+- [x] Spannungsversorgung nicht vergessen! Der Servo hatte sich anfangs nicht gedreht... er hatte auch keine
   Spannung. 5V Pin mit dem + auf der gleichen Seite verbinden.
 
 Todo (1c):
-- Funktioniert, siehe: **EmotionalBox/Ansprache der Bauteile/01 Servo + User Input/00 toggle iteriert und servo dreht 
+- [x] Funktioniert, siehe: **EmotionalBox/Ansprache der Bauteile/01 Servo + User Input/00 toggle iteriert und servo 
+  dreht 
   sich bei input**
-- Funktioniert, aber nicht schön. Das ganze muss objektorientiert gehen damit der Code schöner und übersichtlicher ist.
+- [x] Funktioniert, aber nicht schön. Das ganze muss objektorientiert gehen damit der Code schöner und 
+  übersichtlicher ist.
 
 ###Objekt Orientiertes Programmieren mit C++
 https://www.mintgruen.tu-berlin.de/robotikWiki/doku.php?id=techniken:objektorient
@@ -18,3 +20,34 @@ Servo zum ersten Mal Objektorientiert angesteuert!! Der Code aus dem zweiten Lin
 Da in dem Code aber sehr primitiv der Servo nur seine Position wechselt, schauen, ob ich das mit dem Input irgendwie 
 kombinieren kann, bzw. ob ich meinen bisherigen Servo Code umsetzen kann mit der While Schleife. Aber das mal mit 
 mehr Schlaf :D
+
+##*17.10.2022*
+Objektorientieres Ansteuern....
+
+TODO heute:
+- [ ] Iteration +1 jedes Mal, wenn der Kipp schalter auf "ON" geschaltet wird
+- [ ] Timer, der xx Sekunden wartet, bis er die Iteration wieder auf 0 setzt. Das ist der "Reset"
+- [ ] Wenn der Schalter umgelegt wird, dreht sich der servo bis zum Anschlag / bis er wieder zurückgesetzt wird
+- [x] ~~Kippschalter Kable neu gelötet~~
+
+... wollte mal den Kippschalter Objektorientiert hinzufügen aber das wird mir zu wild die Klassen in der einen Datei 
+zu haben, also jetzt erstmal schauen wie ich verschiedene Dateien anlegen kann. :')
+
+https://www.circuitbasics.com/programming-with-classes-and-objects-on-the-arduino/
+
+##*20.10.2022*
+Bestellung Display und zwei neue Motoren getätigt :)
+
+Außerdem hab ich am 17. noch Code im Internet gefunden der ganz nice als Grundlage ist. Ich muss genug machen, da 
+baue ich lieber den Code von der anderen Person aus und gut ist. Etwas Arbeit muss ich mir ersparen da noch ECHT 
+viel ansteht.
+
+Akku an IP3506 schließen, über GND & BAT. Mein Akku hat 3.7V Spannung, das muss reguliert werden auf ...V (dafür 
+der step up)<br>
+- [ ] TODO: die Kabel nochmal besser absichern damit ich keinen Kurzschluss kriege
+Der ISP3506 schützt den Akku damit er sich nicht tiefenentlädt & kaputt geht wenn er zu leer ist
+Am Akku an den Schnittstellen GND & VIN kommt
+
+Das USB C Ding in Blau was wir damals bestellt haben ist quasi das gleiche, kann aber nur 1 Amper. Dieses kann 2 
+Amper. Je nach dem was meine Motoren verbrauchen, kann es auch sein, dass ich das brauche. Also werde ich einfach 
+einen Micro USB Anschluss dranlöten und gut ist, USB-C hatten wir ja damals hauptsächlich wegen Florian bestellt.
