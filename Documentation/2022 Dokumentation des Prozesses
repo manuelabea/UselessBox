@@ -42,12 +42,48 @@ Außerdem hab ich am 17. noch Code im Internet gefunden der ganz nice als Grundl
 baue ich lieber den Code von der anderen Person aus und gut ist. Etwas Arbeit muss ich mir ersparen da noch ECHT 
 viel ansteht.
 
-Akku an IP3506 schließen, über GND & BAT. Mein Akku hat 3.7V Spannung, das muss reguliert werden auf ...V (dafür 
-der step up)<br>
+###IP3506:
+
 - [ ] TODO: die Kabel nochmal besser absichern damit ich keinen Kurzschluss kriege
 Der ISP3506 schützt den Akku damit er sich nicht tiefenentlädt & kaputt geht wenn er zu leer ist
-Am Akku an den Schnittstellen GND & VIN kommt
 
-Das USB C Ding in Blau was wir damals bestellt haben ist quasi das gleiche, kann aber nur 1 Amper. Dieses kann 2 
+5VOUT  -> TEENSY 5V <br>
+GND    -> TEENSY GND<br>
+BAT    -> AKKU<br>
+GND    -> AKKU<br>
+GND    -> MICRO USB (das worüber ich aufladen werde)<br>
+VIN    -> MICRO USB<br>
+
+Das USB C Ding in Blau was wir damals bestellt haben ist quasi das gleiche, kann aber nur 1 Amper. Der IP3506 kann 2 
 Amper. Je nach dem was meine Motoren verbrauchen, kann es auch sein, dass ich das brauche. Also werde ich einfach 
 einen Micro USB Anschluss dranlöten und gut ist, USB-C hatten wir ja damals hauptsächlich wegen Florian bestellt.
+
+##*21.10.2022*
+Verschiedenes gelernt...
+
+...ich werde die FastLED Library für meinen LED Strip nutzen. Das ist die Doku dazu: http://fastled.io/docs/3.1/md__r_e_a_d_m_e.html
+
+...für meinen LED Strip bräuchte ich eigentlich den Logic Shifter (4-Channel I2C-safe-bi-directional logic level c)
+
+...Was für der logic Shifter?
+          Beispiel 1: Die LED registrieren LOW bei 0,irgendwas und HIGH bei 4 irgendwas Volt. Bekommen aber nur 3,3V 
+aus meinem teensy. Warum das funktioniert, curios, aber es tuts. Besser wäre es aber, wenn er die 5V bekommen würde. 
+Also schließe ich den teensy an den logic shifter, und die LED an den Logic shifter und die 3,3V werden zu 5V 
+"übersetzt".
+          Beispiel 2: Das ist anders herum auch wichtig um den Teensy zu schützen, zB mit meinem Distanz Sensor. Der 
+Sensor schickt 5V zurück, der Teensy kann aber nur 3.3V. Wenn ich Pech habe geht dann nur der Pin kaputt, wenn ich 
+RICHTIG Pech habe, geht der ganze Teensy kaputt. Das ist blöd.
+
+...Wie schalte ich den logic shifter an den Teensy? Ich verbinde LV mit meinem 3V Pin auf dem Teensy, und GND mit 
+GND (duh). Auf der anderen Seite kommt dann 5V raus. Dann muss ich auch noch A1 bspw. mit dem Pin auf dem Teensy 
+verbinden den ich benutzen möchte. Und meine LED dann einfach an A1. Und damit sind die dann mit dem Teensy verbunden.
+
+...Serial Print überladen. Fürs Debuggen ist serial print ganz gut, aber ist aufwendig.
+
+...Interrupts benutzen um nicht im Loop DigitalRead zu machen. Das ist sehr ineffizient. Und dann den DigitalRead in 
+einem State speichern, und einen oldToggleState nutzen um zu vergleichen ob der State sich verändert hat. :)
+
+### Interrupts
+https://www.pjrc.com/teensy/interrupts.html
+https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+https://techoverflow.net/2022/02/16/teensy-4-1-arduino-external-interrupt-pin-interrupt-minimal-example/
