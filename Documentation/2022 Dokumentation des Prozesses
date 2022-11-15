@@ -87,3 +87,19 @@ einem State speichern, und einen oldToggleState nutzen um zu vergleichen ob der 
 https://www.pjrc.com/teensy/interrupts.html
 https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 https://techoverflow.net/2022/02/16/teensy-4-1-arduino-external-interrupt-pin-interrupt-minimal-example/
+
+
+
+## 9.11.2022
+Uff voll lange nicht mehr dokumentiert... aber ich hab das display und ich konnte es bereits mal anmachen. Heute 
+will ich schauen, dass ich das zumindest sicher an meinen teensy bekomme. Dafür werd ich hoffentlich den Lars fragen
+
+Q: Was sind das ales für Brücken die ich bei mir hier habe?
+
+## 15.11.2022
+ICH HASSE ES. Ich hatte funktionierenden Code, aber der ist weg... und ich weiß nicht wo. ich kann wieder nicht 
+anständig hochiterieren. UND ICH VERSTEHE NICHT WARUM.
+
+Immerhin funktioniert mein Sensor. Aber das wars gerade auch schon
+
+Display geht immernoch nicht.

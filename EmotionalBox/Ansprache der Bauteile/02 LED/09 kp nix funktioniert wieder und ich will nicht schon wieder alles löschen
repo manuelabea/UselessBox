@@ -1,4 +1,6 @@
 /*
+DAS IST GERADE MEIN CODE FÜR MEINE ITERATION; DIE FUNKTIONIERT GERADE NICHT ÜBER DEN TOGGLE SWITCH (MAL WIEDER)
+
 Belegungsplan:
 2:      Toggle
 4:      Button
@@ -16,7 +18,7 @@ Nur so funktioniert es.
 
 const int togglePin = 2;
 const int buttonPin = 4;
-const int temporalThreshold = 100; // wie lange wird gebraucht bis wir eine state Änderung als einen neuen State akzeptieren
+const int temporalThreshold = 200; // wie lange wird gebraucht bis wir eine state Änderung als einen neuen State akzeptieren
 
 volatile unsigned long interruptionMillis;
 unsigned long currentMillis;
@@ -53,7 +55,7 @@ void setup() {
 
   pinMode(togglePin, INPUT_PULLDOWN);
   pinMode(buttonPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(togglePin), countActions, RISING);
+  attachInterrupt(digitalPinToInterrupt(togglePin), countActions, FALLING);
   attachInterrupt(digitalPinToInterrupt(buttonPin), buttonInterrupt, CHANGE);
 
   FastLED.addLeds<NEOPIXEL, 14>(leds, NUM_LEDS);
@@ -67,7 +69,7 @@ void loop() {
   currentMillis = millis();
 
   if (currentMillis - interruptionMillis >= period && blocked == true) {
-    attachInterrupt(digitalPinToInterrupt(togglePin), countActions, RISING);
+    attachInterrupt(digitalPinToInterrupt(togglePin), countActions, FALLING);
     interruptionMillis = currentMillis;
     blocked = false;
   }
@@ -76,12 +78,6 @@ void loop() {
     currentAction = actionCounter;
     chooseAction(currentAction);
   }
-
-  // IF Abfrage ob genug Zeit verstrichen ist, dann wird erst das Flag umgesetzt.
-  // Zeit abfragen mit millis
-  // Verstrichene Zeit
-  // blocked = false;
-  // to do : merken: Moritz bei Platine bitten, dass er mir hardware technisch Hilft einen debouncer einzubauen.
 }
 
 //
@@ -111,6 +107,14 @@ void buttonInterrupt() {
 
 void chooseAction(int action) {
   Serial.println("Action: " + String(actionCounter));
+  if (actionCounter%2 == 0) {
+      fill_solid( leds, NUM_LEDS, CHSV( 0, 255, 255) );  //rot
+      FastLED.show();  // display the pixels
+  } else {
+      fill_solid( leds, NUM_LEDS, CHSV( 160, 255, 255) );  //blau
+      FastLED.show();  // display the pixel
+  }
+  /*
   switch(action) {
     case 1:
       //Serial.println("Action: " + String(actionCounter));
@@ -146,7 +150,8 @@ void chooseAction(int action) {
       //Serial.println("Action: " + String(actionCounter));
       fill_solid( leds, NUM_LEDS, CHSV( 100, 0, 255) ); //white
       break;
-  }
 
+  }
+      */
 }
 

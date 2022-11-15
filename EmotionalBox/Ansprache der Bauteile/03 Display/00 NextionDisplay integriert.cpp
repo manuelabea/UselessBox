@@ -3,6 +3,8 @@ Belegungsplan:
 2:      Toggle
 4:      Button
 14:     LED
+16:     NextionDisplay RXD
+17:     NextionDisplay TXD
 */
 
 #include "FastLED.h"
@@ -26,7 +28,7 @@ volatile int actionCounter = 0; // variable to count which action we're at
 int currentAction = 0;
 
 // variables that will change:
-volatile byte toggleState = HIGH; // variable for reading the pushbutton status
+volatile byte toggleState = LOW; // variable for reading the pushbutton status
 volatile byte lastUpdate = 0; // Der Zeitstempel von der letzten Veränderung. Genutzt beim Toggle
 
 volatile int buttonState;
@@ -87,7 +89,7 @@ void loop() {
 //
 
 void countActions() {
-  Serial.println("Test") + Serial.println(digitalRead(togglePin));
+  Serial.println("Test") + Serial.println(digitalRead(toggleState));
   interruptionMillis = millis();
   blocked = true;
   actionCounter += 1;
