@@ -1,3 +1,5 @@
+
+
 ##*11.10.2022*
 Todo (1a):
 - [x] Spannungsversorgung nicht vergessen! Der Servo hatte sich anfangs nicht gedreht... er hatte auch keine
@@ -103,3 +105,27 @@ anständig hochiterieren. UND ICH VERSTEHE NICHT WARUM.
 Immerhin funktioniert mein Sensor. Aber das wars gerade auch schon
 
 Display geht immernoch nicht.
+
+## 22.11.2022
+Oh ich sehe ich habe länger schon nicht dokumentiert. Es ist einiges passiert.
+
+Display geht, wird über den Serial4 angesteuert, hab einen tollen YT Kanal entdeckt der da sehr einfach gezeigt hat 
+wie es geht. Ohne jeglichen Schnick schnack, die Library ist Müll... 
+
+Es funktioniert ebenfalls seit paar Tagen schon der Distance Sensor, der war sehr einfach.
+
+Und seit heute (dank Lars) funktioniert auch der Reflektionssensor (QTR-1RC) Irgendwie hat er über den level shifter 
+nicht richtig funktioniert, also ist er nun so angeschlossen:
+
+GND an das GND der 3,3V
+VIN an 3,3V
+OUT an dem Pin 20 aktuell. Ich werde den funktionierenden Beispielcode mal sichern, so habe ich wenigstens etwas. 
+UNd dann schaue ich, dass ich ihn eingebettet bekomme in MEINEN Code.
+
+Gestern habe ich mir auch Gedanken dazu gemacht, wie ich den Programmablauf steuere, hab da auch schon eine Idee 
+aber die werde ich noch umsetzen müssen. :)
+
+
+
+
+
