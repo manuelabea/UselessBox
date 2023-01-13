@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'BSS138'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "MOUSER_TESTING_PART_NUMBER", "MOUSER_TESTING_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT", "TJ", "TKNEE", "MTBF", "POWER", "SLOPE", "SUBTYPE", "PACKAGE", "RJA", "RCA", "RJC", "IG", "ID", "VDS", "VGSF", "VGSR", "VTH", "RON", "IDM";
+{========================================================================================}
+ "onsemi", "BSS138" (!) = "", "SOT95P240X120-3N", "SOT23 (3-Pin)", "512-BSS138", "https://www.mouser.co.uk/ProductDetail/ON-Semiconductor-Fairchild/BSS138?qs=HK%252BeIG1iaahCeqBvjB4arg%3D%3D", "BSS138", "https://www.arrow.com/en/products/bss138/on-semiconductor", "", "", "N-channel MOSFET,BSS138 0.2A 50V", "https://www.onsemi.com/pub/Collateral/BSS138-D.PDF", "1.2 mm", "150", "", "", "0.36", "2.8m", "N CHANNEL ENHANCEMENT MOSFET SMD", "SOT-23", "350", "", "", "100n", "0.22", "50", "20", "20", "1.15", "3.5", "0.88"
+END_PART
+
+END.

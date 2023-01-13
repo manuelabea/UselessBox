@@ -1,0 +1,20 @@
+.BSS138 :1 ;N-channel MOSFET,BSS138 0.2A 50V
+SOT95P240X120-3N
+*STM Q
+*NGS
+*PLB 1="G" 2="S" 3="D"
+*MXP 3
+*DFN BSS138
+~!Manufacturer_Name (onsemi)
+~!Manufacturer_Part_Number (BSS138)
+~!Mouser Part Number (512-BSS138)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/ON-Semiconductor-Fairchild/BSS138?qs=HK%252BeIG1iaahCeqBvjB4arg%3D%3D)
+~!Arrow Part Number (BSS138)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/bss138/on-semiconductor)
+~!Mouser Testing Part Number (-)
+~!Mouser Testing Price/Stock (-)
+~!Link Datasheet (https://www.onsemi.com/pub/Collateral/BSS138-D.PDF)
+~!Height (1.2mm)
+~!3D_Model (BSS138)
+BSS138
+1.1!U 2.1!U 3.1!U 

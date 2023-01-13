@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "BSS138"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2019-07-01-14:34:14)
+    (mountForm default
+        (footprintRef "SOT95P240X120-3N")
+        (spec "System")
+    )
+)
