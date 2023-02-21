@@ -60,6 +60,8 @@ https://www.exp-tech.de/media/pdf/lipo/SPE-DTP18650-3P-6600mah-En-1.0V.pdf
 **Der Motor - Pololu 120:1 Mini Plastic Gearmotor 90-Degree 3mm D-Shaft Output :**
 https://www.exp-tech.de/motoren/dc-getriebemotoren/4859/pololu-120-1-mini-plastic-gearmotor-90-degree-3mm-d-shaft-output
 
+neuer motor: https://www.pololu.com/file/0J819/mini-plastic-gearmotor-offset-dimension-diagram.pdf
+
 **BSS138**
 https://www.adafruit.com/product/757
 
